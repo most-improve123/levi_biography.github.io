@@ -8,18 +8,19 @@
 
   <meta
     name="description"
-    content="Levi Palacios is a software developer focused on AI automation, Bitcoin infrastructure, and interactive learning systems."
+    content="Levi Palacios is a software developer focused on AI automation, Bitcoin infrastructure, and interactive learning systems. Junior Developer at WeSpark Innovation Agency."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -70,7 +71,139 @@
       letter-spacing:4px;
       font-size:12px;
       margin-bottom:24px;
-      font-weight:600;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .section-label::before{
+      content:'';
+      display:inline-block;
+      width:20px;
+      height:2px;
+      background:var(--yellow);
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(30px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes glowPulse{
+      0%,100%{ opacity:0.18; transform:scale(1); }
+      50%{ opacity:0.28; transform:scale(1.08); }
+    }
+
+    @keyframes sparkFloat{
+      0%,100%{ transform:translateY(0px) rotate(0deg); }
+      50%{ transform:translateY(-12px) rotate(3deg); }
+    }
+
+    @keyframes borderGlow{
+      0%,100%{ border-color: rgba(252,211,7,0.2); }
+      50%{ border-color: rgba(252,211,7,0.6); }
+    }
+
+    .fade-in{
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .fade-in-delay-1{ animation-delay:0.1s; opacity:0; }
+    .fade-in-delay-2{ animation-delay:0.25s; opacity:0; }
+    .fade-in-delay-3{ animation-delay:0.4s; opacity:0; }
+    .fade-in-delay-4{ animation-delay:0.55s; opacity:0; }
+
+    /* NAV */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      padding:0 40px;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background:rgba(0,0,0,0.85);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-logo{
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .nav-logo span{
+      color:var(--yellow);
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:32px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:#A0A0A0;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:500;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      transition:color 0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .nav-badge{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(252,211,7,0.08);
+      border:1px solid rgba(252,211,7,0.2);
+      border-radius:999px;
+      padding:8px 18px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .nav-badge:hover{
+      background:rgba(252,211,7,0.14);
+      border-color:rgba(252,211,7,0.5);
+    }
+
+    .nav-badge-dot{
+      width:7px;
+      height:7px;
+      background:var(--yellow);
+      border-radius:50%;
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    .nav-badge span{
+      font-size:12px;
+      font-weight:700;
+      color:var(--yellow);
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
 
     /* HERO */
@@ -81,6 +214,32 @@
       align-items:center;
       position:relative;
       overflow:hidden;
+      padding-top:72px;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      top:-150px;
+      right:-150px;
+      width:600px;
+      height:600px;
+      background:rgba(252,211,7,0.07);
+      filter:blur(140px);
+      border-radius:50%;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      bottom:-200px;
+      left:-100px;
+      width:500px;
+      height:500px;
+      background:rgba(255,188,0,0.04);
+      filter:blur(120px);
+      border-radius:50%;
     }
 
     .hero-grid{
@@ -90,23 +249,65 @@
       align-items:center;
     }
 
+    /* WeSpark tag above name */
+    .wespark-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(252,211,7,0.08);
+      border:1px solid rgba(252,211,7,0.25);
+      border-radius:999px;
+      padding:8px 20px;
+      margin-bottom:28px;
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+
+    .wespark-tag .spark-icon{
+      font-size:14px;
+      color:var(--yellow);
+    }
+
+    .wespark-tag span{
+      font-size:12px;
+      font-weight:700;
+      color:var(--yellow);
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
     .hero h1{
-      font-size:110px;
-      line-height:0.95;
-      font-weight:800;
+      font-size:104px;
+      line-height:0.92;
+      font-weight:900;
       margin-bottom:32px;
+      letter-spacing:-2px;
+    }
+
+    .hero h1 .highlight{
+      color:var(--yellow);
+      display:inline-block;
+      animation: sparkFloat 5s ease-in-out infinite;
     }
 
     .hero p{
-      font-size:22px;
+      font-size:21px;
       line-height:1.8;
-      color:#CFCFCF;
-      max-width:700px;
+      color:#C0C0C0;
+      max-width:620px;
+    }
+
+    .typing-line{
+      margin-top:24px;
+      font-size:13px;
+      color:var(--sand);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-weight:500;
     }
 
     .buttons{
       display:flex;
-      gap:20px;
+      gap:16px;
       margin-top:40px;
       flex-wrap:wrap;
     }
@@ -116,26 +317,32 @@
       color:#000;
       padding:16px 34px;
       border-radius:999px;
-      font-weight:700;
+      font-weight:800;
       text-decoration:none;
       transition:0.3s;
+      font-size:14px;
+      letter-spacing:0.5px;
     }
 
     .btn-primary:hover{
       transform:translateY(-3px);
+      box-shadow:0 0 40px rgba(252,211,7,0.3);
     }
 
     .btn-secondary{
-      border:1px solid #333;
+      border:1px solid rgba(255,255,255,0.12);
       color:#fff;
       padding:16px 34px;
       border-radius:999px;
       text-decoration:none;
       transition:0.3s;
+      font-size:14px;
+      font-weight:600;
     }
 
     .btn-secondary:hover{
       border-color:var(--yellow);
+      color:var(--yellow);
     }
 
     /* IMAGE SECTION */
@@ -149,12 +356,13 @@
 
     .glow{
       position:absolute;
-      width:420px;
-      height:420px;
-      background:rgba(252,211,7,0.18);
+      width:440px;
+      height:440px;
+      background:rgba(252,211,7,0.15);
       filter:blur(120px);
       border-radius:50%;
       z-index:0;
+      animation: glowPulse 5s ease-in-out infinite;
     }
 
     .hero-image{
@@ -164,153 +372,507 @@
       max-width:420px;
       height:520px;
       object-fit:cover;
-      border-radius:32px;
-      border:1px solid #2A2A2A;
-      box-shadow:0 0 40px rgba(252,211,7,0.08);
+      border-radius:28px;
+      border:1px solid rgba(252,211,7,0.12);
+      box-shadow:0 0 60px rgba(252,211,7,0.06);
     }
 
+    /* WeSpark team badge (replaces hero card) */
     .hero-card{
       position:absolute;
       bottom:-30px;
       right:-20px;
-      background:rgba(15,15,15,0.95);
-      border:1px solid #222;
+      background:rgba(8,8,8,0.96);
+      border:1px solid rgba(252,211,7,0.2);
       border-radius:24px;
-      padding:24px;
-      width:260px;
+      padding:22px 24px;
+      width:270px;
       z-index:3;
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(16px);
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+
+    .card-header{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+      padding-bottom:14px;
+      border-bottom:1px solid rgba(252,211,7,0.1);
+    }
+
+    .card-header-dot{
+      width:28px;
+      height:28px;
+      background:var(--yellow);
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .card-header-dot i{
+      font-size:13px;
+      color:#000;
+    }
+
+    .card-header-text{
+      font-size:13px;
+      font-weight:700;
+      color:#fff;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .card-header-sub{
+      font-size:10px;
+      color:#666;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      margin-top:2px;
     }
 
     .status{
       display:flex;
       justify-content:space-between;
-      margin-bottom:16px;
-      color:#A0A0A0;
-      font-size:14px;
+      align-items:center;
+      margin-bottom:10px;
+      color:#888;
+      font-size:12px;
+    }
+
+    .status:last-child{
+      margin-bottom:0;
+    }
+
+    .status-dot{
+      width:6px;
+      height:6px;
+      background:var(--yellow);
+      border-radius:50%;
+      display:inline-block;
+      margin-right:6px;
+      animation: glowPulse 2s ease-in-out infinite;
     }
 
     .status strong{
       color:var(--yellow);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:1px;
     }
 
-    /* GENERAL */
+    /* PERSONAL NOTE */
+
+    .personal-note{
+      background:linear-gradient(
+        135deg,
+        rgba(252,211,7,0.06) 0%,
+        rgba(231,220,185,0.03) 50%,
+        rgba(0,0,0,0) 100%
+      );
+      border:1px solid rgba(252,211,7,0.1);
+      padding:48px;
+      border-radius:28px;
+      margin-top:80px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .personal-note::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:2px;
+      background:linear-gradient(90deg, var(--yellow) 0%, transparent 60%);
+    }
+
+    .personal-note h3{
+      font-size:30px;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .personal-note p{
+      color:#BFBFBF;
+      line-height:1.9;
+      font-size:17px;
+    }
+
+    /* GENERAL SECTIONS */
 
     .section-title{
-      font-size:64px;
-      line-height:1.1;
-      margin-bottom:80px;
-      max-width:900px;
+      font-size:60px;
+      line-height:1.05;
+      margin-bottom:72px;
+      max-width:860px;
+      font-weight:800;
+      letter-spacing:-1px;
     }
+
+    .section-title em{
+      font-style:normal;
+      color:var(--yellow);
+    }
+
+    /* CARDS */
 
     .cards{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:30px;
+      gap:24px;
     }
 
     .card{
       background:var(--card);
       border:1px solid var(--border);
       padding:40px;
-      border-radius:30px;
+      border-radius:24px;
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card-icon{
+      width:48px;
+      height:48px;
+      background:rgba(252,211,7,0.1);
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:24px;
+      font-size:20px;
+      color:var(--yellow);
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:2px;
+      background:linear-gradient(90deg, var(--yellow), transparent);
+      opacity:0;
       transition:0.3s;
     }
 
     .card:hover{
       transform:translateY(-6px);
       border-color:#2D2D2D;
+      background:#111;
+    }
+
+    .card:hover::before{
+      opacity:1;
     }
 
     .card h3{
-      color:var(--yellow);
-      font-size:28px;
-      margin-bottom:20px;
+      color:#fff;
+      font-size:22px;
+      margin-bottom:16px;
+      font-weight:700;
     }
 
     .card p{
-      color:#CFCFCF;
+      color:#888;
       line-height:1.8;
-      font-size:17px;
+      font-size:15px;
     }
+
+    /* BIO */
 
     .bio{
       max-width:900px;
     }
 
     .bio p{
-      color:#D8D8D8;
-      font-size:20px;
+      color:#C8C8C8;
+      font-size:19px;
       line-height:2;
-      margin-bottom:40px;
+      margin-bottom:36px;
     }
+
+    .quote-box{
+      margin-top:60px;
+      padding:40px 48px;
+      border-left:3px solid var(--yellow);
+      background:rgba(252,211,7,0.04);
+      border-radius:0 20px 20px 0;
+    }
+
+    .quote-box p{
+      font-size:24px;
+      line-height:1.7;
+      color:#FFFFFF;
+      margin:0;
+      font-weight:300;
+      font-style:italic;
+    }
+
+    /* WESPARK SECTION */
+
+    .wespark-section{
+      background:linear-gradient(135deg, rgba(252,211,7,0.08) 0%, rgba(0,0,0,0) 60%);
+      border:1px solid rgba(252,211,7,0.15);
+      border-radius:28px;
+      padding:60px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .wespark-section::before{
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0;
+      height:2px;
+      background:linear-gradient(90deg, var(--yellow), var(--gold), transparent);
+    }
+
+    .wespark-section-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .wespark-logo-text{
+      font-size:52px;
+      font-weight:900;
+      letter-spacing:-1px;
+      line-height:1;
+      margin-bottom:16px;
+    }
+
+    .wespark-logo-text .we{
+      color:#fff;
+    }
+
+    .wespark-logo-text .spark{
+      color:var(--yellow);
+    }
+
+    .wespark-role-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(252,211,7,0.1);
+      border:1px solid rgba(252,211,7,0.2);
+      border-radius:999px;
+      padding:6px 16px;
+      font-size:11px;
+      font-weight:700;
+      color:var(--yellow);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:24px;
+    }
+
+    .wespark-desc{
+      color:#A0A0A0;
+      font-size:17px;
+      line-height:1.8;
+      margin-bottom:28px;
+    }
+
+    .wespark-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .wespark-stat{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:18px;
+      padding:24px 20px;
+      text-align:center;
+    }
+
+    .wespark-stat-num{
+      font-size:28px;
+      font-weight:900;
+      color:var(--yellow);
+      margin-bottom:6px;
+    }
+
+    .wespark-stat-label{
+      font-size:11px;
+      color:#666;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .wespark-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--yellow);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      border-bottom:1px solid rgba(252,211,7,0.3);
+      padding-bottom:2px;
+      transition:0.3s;
+    }
+
+    .wespark-link:hover{
+      border-color:var(--yellow);
+      gap:14px;
+    }
+
+    /* FOCUS GRID */
 
     .focus-grid{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
       margin-top:60px;
     }
 
     .focus-item{
       background:var(--card);
       border:1px solid var(--border);
-      border-radius:24px;
-      padding:30px;
-      font-size:24px;
-      font-weight:600;
+      border-radius:20px;
+      padding:28px 30px;
+      font-size:16px;
+      font-weight:700;
+      transition:0.3s;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
     }
+
+    .focus-item::before{
+      content:'';
+      width:8px;
+      height:8px;
+      background:var(--yellow);
+      border-radius:50%;
+      flex-shrink:0;
+      transition:0.3s;
+    }
+
+    .focus-item:hover{
+      border-color:rgba(252,211,7,0.3);
+      background:#0F0F0F;
+      transform:translateX(6px);
+    }
+
+    .focus-item:hover::before{
+      box-shadow:0 0 10px rgba(252,211,7,0.6);
+    }
+
+    /* FOOTER */
 
     footer{
-      padding:80px 0;
+      padding:80px 0 60px;
     }
 
-    .footer-grid{
+    .footer-top{
       display:flex;
       justify-content:space-between;
       gap:40px;
       flex-wrap:wrap;
+      align-items:flex-start;
+      padding-bottom:48px;
+      border-bottom:1px solid var(--border);
+      margin-bottom:40px;
     }
 
-    .footer-grid h3{
-      font-size:36px;
+    .footer-name{
+      font-size:34px;
+      font-weight:900;
+      margin-bottom:8px;
+      letter-spacing:-0.5px;
+    }
+
+    .footer-role{
+      color:var(--yellow);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
       margin-bottom:16px;
     }
 
-    .footer-grid p{
-      color:#A8A8A8;
-      line-height:1.8;
-      max-width:500px;
+    .footer-email{
+      color:#606060;
+      font-size:15px;
     }
 
     .footer-links{
-  display:flex;
-  flex-direction:row;
-  gap:92px;
-  align-items:center;
-}
+      display:flex;
+      flex-direction:row;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-.footer-links a{
-  width:58px;
-  height:58px;
-  border:1px solid #222;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#FFFFFF;
-  font-size:22px;
-  text-decoration:none;
-  transition:0.3s;
-  background:#0D0D0D;
-}
+    .footer-links a{
+      width:56px;
+      height:56px;
+      border:1px solid #1E1E1E;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#888;
+      font-size:20px;
+      text-decoration:none;
+      transition:0.3s;
+      background:#080808;
+    }
 
-.footer-links a:hover{
-  border-color:var(--yellow);
-  color:var(--yellow);
-  transform:translateY(-4px);
-  box-shadow:0 0 20px rgba(252,211,7,0.15);
-}
+    .footer-links a:hover{
+      border-color:var(--yellow);
+      color:var(--yellow);
+      transform:translateY(-4px);
+      box-shadow:0 0 20px rgba(252,211,7,0.12);
+    }
+
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .footer-copy{
+      color:#444;
+      font-size:13px;
+    }
+
+    .footer-wespark-credit{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      color:#555;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      transition:0.3s;
+    }
+
+    .footer-wespark-credit:hover{
+      color:var(--yellow);
+    }
+
+    .footer-wespark-credit .ws-dot{
+      width:14px;
+      height:14px;
+      background:var(--yellow);
+      border-radius:4px;
+    }
 
     /* RESPONSIVE */
 
@@ -325,7 +887,7 @@
       }
 
       .focus-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
       }
 
       .hero h1{
@@ -333,7 +895,7 @@
       }
 
       .section-title{
-        font-size:48px;
+        font-size:46px;
       }
 
       .hero-image-wrapper{
@@ -344,6 +906,15 @@
         right:0;
       }
 
+      .wespark-section-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+
+      .wespark-logo-text{
+        font-size:40px;
+      }
+
     }
 
     @media(max-width:700px){
@@ -352,24 +923,34 @@
         padding:0 24px;
       }
 
+      nav{
+        padding:0 24px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
       section{
         padding:90px 0;
       }
 
       .hero h1{
         font-size:54px;
+        letter-spacing:-1px;
       }
 
       .hero p{
-        font-size:18px;
+        font-size:17px;
       }
 
       .section-title{
-        font-size:38px;
+        font-size:36px;
+        margin-bottom:48px;
       }
 
       .bio p{
-        font-size:18px;
+        font-size:17px;
       }
 
       .hero-image{
@@ -381,6 +962,27 @@
         width:100%;
         margin-top:20px;
         bottom:auto;
+        right:auto;
+      }
+
+      .footer-links{
+        gap:10px;
+      }
+
+      .focus-grid{
+        grid-template-columns:1fr;
+      }
+
+      .wespark-section{
+        padding:36px;
+      }
+
+      .wespark-stats{
+        grid-template-columns:1fr;
+      }
+
+      .personal-note{
+        padding:30px;
       }
 
     }
@@ -389,6 +991,32 @@
 </head>
 
 <body>
+
+  <!-- NAV -->
+
+  <nav>
+
+    <a href="#" class="nav-logo">
+      LEVI <span>PALACIOS</span>
+    </a>
+
+    <div class="nav-right">
+
+      <ul class="nav-links">
+        <li><a href="#build">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Focus</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="https://www.wespark.io/team" target="_blank" class="nav-badge">
+        <div class="nav-badge-dot"></div>
+        <span>WeSpark</span>
+      </a>
+
+    </div>
+
+  </nav>
 
   <!-- HERO -->
 
@@ -402,27 +1030,32 @@
 
         <div>
 
-          <div class="section-label">
-            AI • Bitcoin • Interactive Learning
+          <div class="wespark-tag fade-in fade-in-delay-1">
+            <i class="fa-solid fa-bolt spark-icon"></i>
+            <span>WeSpark Innovation Agency</span>
           </div>
 
-          <h1>
-            LEVI<br>
+          <h1 class="fade-in fade-in-delay-2">
+            <span class="highlight">LEVI</span><br>
             PALACIOS
           </h1>
 
-          <p>
+          <p class="fade-in fade-in-delay-3">
             Building intelligent systems that transform complex technologies into understandable, visual, and interactive experiences.
           </p>
 
-          <div class="buttons">
+          <div class="typing-line fade-in fade-in-delay-3">
+            Junior Developer @ WeSpark
+          </div>
 
-            <a href="https://github.com/most-improve123" class="btn-primary">
-              View Projects
+          <div class="buttons fade-in fade-in-delay-4">
+
+            <a href="https://github.com/most-improve123" target="_blank" class="btn-primary">
+              Explore My Work
             </a>
 
-            <a href="https://mail.google.com/mail/u/3/#inbox?compose=GTvVlcSBptLBQNFgFmCWdBdLwRdHZCfMGQkGwbwMZGkhZNDcxvwDHsLrdlRsHTjrMcKGSnjRmGBKr" class="btn-secondary">
-              Contact
+            <a href="https://www.wespark.io/team" target="_blank" class="btn-secondary">
+              View at WeSpark
             </a>
 
           </div>
@@ -435,13 +1068,6 @@
 
           <div class="glow"></div>
 
-          <!-- 
-            REPLACE THIS IMAGE WITH YOUR PHOTO
-            Put your image in the same folder as this HTML file
-            Example:
-            levi.jpg
-          -->
-
           <img
             src="LINKEDINIMG.png"
             alt="Levi Palacios"
@@ -450,23 +1076,33 @@
 
           <div class="hero-card">
 
+            <div class="card-header">
+              <div class="card-header-dot">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <div class="card-header-text">WeSpark Team</div>
+                <div class="card-header-sub">Active Member</div>
+              </div>
+            </div>
+
             <div class="status">
-              <span>AI Automation</span>
+              <span><span class="status-dot"></span>AI Automation</span>
               <strong>ACTIVE</strong>
             </div>
 
             <div class="status">
-              <span>Bitcoin Infrastructure</span>
+              <span><span class="status-dot"></span>Bitcoin Infrastructure</span>
               <strong>ACTIVE</strong>
             </div>
 
             <div class="status">
-              <span>Interactive Learning</span>
+              <span><span class="status-dot"></span>Interactive Learning</span>
               <strong>ACTIVE</strong>
             </div>
 
             <div class="status">
-              <span>Visual Systems</span>
+              <span><span class="status-dot"></span>Visual Systems</span>
               <strong>ACTIVE</strong>
             </div>
 
@@ -476,13 +1112,29 @@
 
       </div>
 
+      <!-- PERSONAL NOTE -->
+
+      <div class="personal-note fade-in fade-in-delay-4">
+
+        <h3>
+          Why I Build
+        </h3>
+
+        <p>
+          I'm interested in the future of how humans interact with technology.
+          My goal is not just to build software, but to create systems that make advanced technologies feel understandable, visual, and accessible for everyday people.
+          Whether through AI automations, Bitcoin infrastructure, or interactive learning experiences, I focus on simplifying complexity into something meaningful.
+        </p>
+
+      </div>
+
     </div>
 
   </section>
 
   <!-- WHAT I BUILD -->
 
-  <section>
+  <section id="build">
 
     <div class="container">
 
@@ -491,39 +1143,39 @@
       </div>
 
       <h2 class="section-title">
-        Designing systems that simplify complexity through AI, Bitcoin infrastructure, and interactive educational experiences.
+        Systems designed to merge <em>automation</em>, decentralized technologies, and human-centered learning.
       </h2>
 
       <div class="cards">
 
         <div class="card">
-
+          <div class="card-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
           <h3>AI Automations</h3>
-
           <p>
-            Intelligent workflows, automation architecture, AI-powered systems, operational logic, and scalable integrations.
+            Intelligent workflows, AI-powered systems, automation architecture, and scalable digital processes focused on operational efficiency.
           </p>
-
         </div>
 
         <div class="card">
-
+          <div class="card-icon">
+            <i class="fa-brands fa-bitcoin"></i>
+          </div>
           <h3>Bitcoin Infrastructure</h3>
-
           <p>
-            Lightning Network systems, Liquid infrastructure, blockchain simulations, and decentralized learning experiences.
+            Lightning Network concepts, blockchain simulations, Liquid infrastructure, and educational experiences around decentralized finance.
           </p>
-
         </div>
 
         <div class="card">
-
+          <div class="card-icon">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
           <h3>Interactive Learning</h3>
-
           <p>
-            Gamified educational systems, AI-enhanced interfaces, visual simulations, and next-generation learning environments.
+            Gamified systems, visual interfaces, educational simulations, and digital experiences designed to improve engagement and understanding.
           </p>
-
         </div>
 
       </div>
@@ -534,7 +1186,7 @@
 
   <!-- BIOGRAPHY -->
 
-  <section>
+  <section id="about">
 
     <div class="container">
 
@@ -545,28 +1197,112 @@
         </div>
 
         <h2 class="section-title">
-          Building technology that people can actually understand.
+          Building technology people can actually <em>connect with</em>.
         </h2>
 
         <p>
-          Levi Palacios is a rising software developer and innovation builder focused on the intersection of Artificial Intelligence, Bitcoin technologies, and next-generation learning systems.
+          Levi Palacios is a junior developer and innovation-focused technologist working at the intersection of Artificial Intelligence, Bitcoin technologies, and next-generation educational systems.
         </p>
 
         <p>
-          His work centers on designing practical digital solutions that combine automation, visual interaction, and decentralized technologies to solve educational and operational challenges.
+          His work focuses on combining automation, visual interaction, and decentralized infrastructure to create practical and engaging digital solutions.
         </p>
 
         <p>
-          Through his involvement in Bitcoin-native ecosystems, Levi developed experience with Lightning Network systems, Liquid infrastructure, blockchain visualization environments, and educational onboarding tools.
+          Through exposure to Bitcoin-native ecosystems and AI-driven development environments, Levi developed experience in Lightning Network systems, blockchain simulations, workflow automations, and intelligent user experiences.
         </p>
 
         <p>
-          His philosophy focuses on transforming advanced technologies into understandable, interactive, and visually intuitive experiences for everyday users.
+          Currently, he contributes as Junior Developer at WeSpark, helping build scalable educational systems and interactive technology experiences.
         </p>
 
-        <p>
-          Currently, Levi serves as Junior Developer – AI Automations & Visual Learning at WeSpark, contributing to automation systems, AI-enhanced learning tools, visual simulations, and intelligent educational infrastructure.
-        </p>
+        <div class="quote-box">
+          <p>
+            "Technology becomes powerful when people can actually understand and interact with it naturally."
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WESPARK SECTION -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-label">
+        Team
+      </div>
+
+      <h2 class="section-title">
+        Part of the <em>WeSpark</em> Innovation Agency.
+      </h2>
+
+      <div class="wespark-section">
+
+        <div class="wespark-section-grid">
+
+          <div>
+
+            <div class="wespark-role-pill">
+              <i class="fa-solid fa-bolt"></i>
+              Junior Developer
+            </div>
+
+            <div class="wespark-logo-text">
+              <span class="we">We</span><span class="spark">Spark</span>
+            </div>
+
+            <p class="wespark-desc">
+              WeSpark is an innovation agency that designs AI-powered products, activates teams, and builds sovereign-grade Bitcoin education systems. Practical. Visual. Effective.
+            </p>
+
+            <a href="https://www.wespark.io" target="_blank" class="wespark-link">
+              Visit wespark.io
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+          </div>
+
+          <div class="wespark-stats">
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">4.9★</div>
+              <div class="wespark-stat-label">Service Rating</div>
+            </div>
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">1200+</div>
+              <div class="wespark-stat-label">Workshop Participants</div>
+            </div>
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">40+</div>
+              <div class="wespark-stat-label">Projects Delivered</div>
+            </div>
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">110K+</div>
+              <div class="wespark-stat-label">Customers Reached</div>
+            </div>
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">28</div>
+              <div class="wespark-stat-label">Countries Registered</div>
+            </div>
+
+            <div class="wespark-stat">
+              <div class="wespark-stat-num">75K+</div>
+              <div class="wespark-stat-label">TEDx Views</div>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -585,7 +1321,7 @@
       </div>
 
       <h2 class="section-title">
-        Artificial Intelligence Automation, Bitcoin Infrastructure, and Interactive Learning Technology.
+        Exploring the future of <em>AI-powered</em> systems, decentralized technologies, and interactive education.
       </h2>
 
       <div class="focus-grid">
@@ -626,35 +1362,46 @@
 
     <div class="container">
 
-      <div class="footer-grid">
+      <div class="footer-top">
 
         <div>
-
-          <h3>
-            LEVI PALACIOS
-          </h3>
-
-          <p>
-            Software developer focused on AI automation, Bitcoin infrastructure, and next-generation interactive learning systems.
-          </p>
-
+          <div class="footer-name">LEVI PALACIOS</div>
+          <div class="footer-role">Junior Developer @ WeSpark</div>
+          <div class="footer-email">levi@wespark.io</div>
         </div>
 
         <div class="footer-links">
 
-  <a href="https://www.linkedin.com/in/levipalacios/" target="_blank">
-    <i class="fa-brands fa-linkedin-in"></i>
-  </a>
+          <a href="https://www.linkedin.com/in/levipalacios/" target="_blank" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
 
-  <a href="https://github.com/most-improve123" target="_blank">
-    <i class="fa-brands fa-github"></i>
-  </a>
+          <a href="https://github.com/most-improve123" target="_blank" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
 
-  <a href="https://mail.google.com/mail/u/3/#inbox?compose=GTvVlcSBptLBQNFgFmCWdBdLwRdHZCfMGQkGwbwMZGkhZNDcxvwDHsLrdlRsHTjrMcKGSnjRmGBKr">
-    <i class="fa-solid fa-envelope"></i>
-  </a>
+          <a href="mailto:levi@wespark.io" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
 
-</div>
+          <a href="https://www.wespark.io/team" target="_blank" title="WeSpark Team">
+            <i class="fa-solid fa-bolt"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <div class="footer-copy">
+          &copy; 2025 Levi Palacios
+        </div>
+
+        <a href="https://www.wespark.io" target="_blank" class="footer-wespark-credit">
+          <div class="ws-dot"></div>
+          Part of the WeSpark Team
+        </a>
 
       </div>
 
